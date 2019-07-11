@@ -1,3 +1,5 @@
 module.exports = {
-  backendPort: 3000
+  backend: {
+    port: 3001,
+  },
 };
