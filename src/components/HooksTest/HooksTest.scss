@@ -1,0 +1,20 @@
+@import '../../variables.scss';
+
+.main {
+  width: 150px;
+  height: 150px;
+  background-color: #C3C3C3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include noselect;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  > span {
+    font-weight: 500;
+    font-size: 20px;
+  }
+}

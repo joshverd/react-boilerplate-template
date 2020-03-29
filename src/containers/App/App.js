@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 import style from './App.scss';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-  render() {
-    return (
-      <div className={style.appWrapper}>
-        <span>Hello!</span>
-      </div>
-    );
-  }
-}
+// Components
+import HooksTest from '../../components/HooksTest/HooksTest.js';
+
+const App = props => {
+  return (
+    <div className={style.appWrapper}>
+      <HooksTest />
+    </div>
+  );
+};
 
 export default App;

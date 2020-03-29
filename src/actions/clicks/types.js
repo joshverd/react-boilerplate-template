@@ -1,0 +1,1 @@
+export const SET_CLICKS_STATE = 'SET_CLICKS_STATE';
