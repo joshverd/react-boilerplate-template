@@ -1,7 +1,7 @@
 # react-scss-barebones-template
 A bare-bones template for a ReactJS app (with SASS and Webpack) and an Express backend.
 
-The npm start script runs both the front-end and the back-end at the same time using Concurrently. Nodemon is used to watch for backend changes and automatically restart the app. Webpack-dev-server automagically re-compiles the front-end when it detects a change. In package.json, we have a Nodemon flag set to ignore any changes from './src' so that the back-end does not restart due to a front-end change.
+The npm start script runs both the front-end and the back-end at the same time using Concurrently. Nodemon is used to watch for backend changes and automatically restart the app. Webpack-dev-server automagically recompiles the front-end when it detects a change. In package.json, we have a Nodemon flag set to ignore any changes from './src' so that the back-end does not restart due to a front-end change.
 
 ### Directory/File List
  - `./routes` - All the backend routes' code
@@ -10,7 +10,8 @@ The npm start script runs both the front-end and the back-end at the same time u
  - `./utils` - Utility functions used by the backend
  - `./config.js` - The backend config
 
-### Running
+### Running Dev
+This will start a server on localhost:3000 and automatically recompile everything into bundle files 
 ```
 npm i
 npm start
