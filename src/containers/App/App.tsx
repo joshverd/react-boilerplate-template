@@ -1,10 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 import style from './App.scss';
 
 // Components
-import HooksTest from '../../components/HooksTest/HooksTest.js';
+import HooksTest from '../../components/HooksTest/HooksTest';
 
-const App = props => {
+type AppPropTypes = {};
+
+const App = (props:AppPropTypes) => {
   return (
     <div className={style.appWrapper}>
       <HooksTest />

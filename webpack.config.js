@@ -6,8 +6,8 @@ const webpack = require('webpack');
 const config = require('./config.js');
 
 const modules = {
-  index: "./src/index.js"
-}
+  index: './src/index.ts',
+};
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './src/index.html',
@@ -29,46 +29,59 @@ module.exports = {
       }
     },
   },
-  entry: "./src/index.js",
+  entry: './src/index.tsx',
+  resolve: {
+    extensions: [ '.ts', '.tsx', '.js' ],
+  },
   output: {
     path: path.resolve("public"),
     filename: 'bundle.js',
     publicPath: '/'
   },
   module: {
-    rules: [{
-        test: /\.js?$/,
+    rules: [
+      // Typescript Loader
+      {
+        test: /\.(ts|tsx)$/,
+        use: 'ts-loader',
         exclude: /node_modules/,
-        use: [{
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/react']
-          }
-        }]
+      },
+      // JS Loader
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: [ '@babel/react' ],
+            },
+          },
+        ],
       },
       // SCSS Loading
       // https://github.com/webpack-contrib/sass-loader
       {
         test: /\.scss$/,
         use: [
-          "style-loader",
+          'style-loader',
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               modules: true,
-              import: true
-            }
+              import: true,
+            },
           },
-          "sass-loader"
-        ]
+          'sass-loader',
+        ],
       },
       {
         test: path.resolve(__dirname, 'node_modules/webpack-dev-server/client'),
-        loader: "null-loader"
-      }
+        loader: 'null-loader',
+      },
     ]
   },
   plugins: [
     htmlPlugin,
-  ]
+  ],
 };

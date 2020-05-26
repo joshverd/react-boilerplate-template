@@ -1,16 +1,13 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 import './index.scss';
 
-// Importing all reducers
-import allReducers from './reducers/index.js';
+// Importing the Redux store, created within the same file
+import store from './store/store';
 
 // Containers
 import App from './containers/App/App';
-
-const store = createStore(allReducers);
 
 ReactDOM.render(
   <Provider store={store}>
