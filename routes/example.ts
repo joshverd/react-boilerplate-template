@@ -1,12 +1,13 @@
-const express = require('express');
+import * as express from 'express';
+import config from '../config';
+
 // In route files, import the express router
 const router = express.Router();
-const config = require('../config.js');
 
 // Importing utils
-const example = require('../utils/example.js');
+import example from '../utils/example';
 
-module.exports = (global) => {
+module.exports = (global:GlobalObject) => {
   // Returns an array of randomly-generated users
   router.get('/get', (req, res) => {
     // Calling example's generateUsers function

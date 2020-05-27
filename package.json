@@ -1,13 +1,17 @@
 {
   "scripts": {
     "frontend": "./node_modules/.bin/webpack-dev-server --dev --port 3000",
-    "backend": "./node_modules/.bin/nodemon app.js",
-    "build": "./node_modules/.bin/webpack --mode production",
-    "start": "set NODE_ENV=development&& concurrently \"npm run frontend\" \"npm run backend\""
+    "backend": "./node_modules/.bin/nodemon --exec \"ts-node\" --files app.ts",
+    "build": "npm run build-frontend && npm run build-backend",
+    "start": "set NODE_ENV=development&& concurrently \"npm run frontend\" \"npm run backend\"",
+    "build-backend": "./node_modules/.bin/tsc --outDir build --project ./tsconfig.node.json",
+    "build-frontend": "./node_modules/.bin/webpack --mode production"
   },
   "dependencies": {
     "@babel/core": "^7.4.4",
     "@babel/preset-react": "^7.0.0",
+    "@types/express": "^4.17.6",
+    "@types/html-webpack-plugin": "^3.2.3",
     "babel-loader": "^8.0.6",
     "concurrently": "^4.1.1",
     "css-loader": "^2.1.1",
@@ -22,7 +26,6 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "ts-loader": "^7.0.5",
-    "typescript": "^3.9.3",
     "webpack": "^4.31.0",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.4.1"
@@ -36,6 +39,8 @@
   "devDependencies": {
     "@types/react": "^16.9.35",
     "@types/react-dom": "^16.9.8",
-    "@types/react-redux": "^7.1.9"
+    "@types/react-redux": "^7.1.9",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.9.3"
   }
 }

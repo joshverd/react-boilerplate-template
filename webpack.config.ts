@@ -1,13 +1,9 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const path = require("path");
-const webpack = require('webpack');
+import * as HtmlWebPackPlugin from 'html-webpack-plugin';
+import * as path from 'path';
+import * as webpack from 'webpack';
 
 // Importing config file
-const config = require('./config.js');
-
-const modules = {
-  index: './src/index.ts',
-};
+import config from './config';
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './src/index.html',
@@ -34,7 +30,7 @@ module.exports = {
     extensions: [ '.ts', '.tsx', '.js' ],
   },
   output: {
-    path: path.resolve("public"),
+    path: path.resolve('build/public'),
     filename: 'bundle.js',
     publicPath: '/'
   },
@@ -43,8 +39,11 @@ module.exports = {
       // Typescript Loader
       {
         test: /\.(ts|tsx)$/,
-        use: 'ts-loader',
+        loader: 'ts-loader',
         exclude: /node_modules/,
+        options: {
+          configFile: 'src/tsconfig.react.json',
+        },
       },
       // JS Loader
       {

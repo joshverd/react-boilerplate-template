@@ -1,10 +1,10 @@
-const express = require('express');
-const http = require('http');
-const path = require('path');
-const bodyParser = require('body-parser');
+import * as express from 'express';
+import * as http from 'http';
+import * as path from 'path';
+import * as bodyParser from 'body-parser';
 
 // Importing the config file
-const config = require('./config.js');
+import config from './config';
 
 // Express app setup
 const app = express();
@@ -20,11 +20,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 //  This is good for keeping a list of connected users, or for
 //  calling data once and then caching it for the rest of the application
 //  to use.
-let global = { };
+let global:GlobalObject = {
+  example: 1,
+};
 
 // Routes!
 // Pass the global object in as a variable on the function that is returned from `./routes/example.js`
-app.use('/api/example', require('./routes/example.js')(global));
+app.use('/api/example', require('./routes/example')(global));
 
 // Starting the server
 server.listen(config.backend.port, () => {
