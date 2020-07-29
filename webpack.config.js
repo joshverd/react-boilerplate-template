@@ -1,9 +1,8 @@
-import * as HtmlWebPackPlugin from 'html-webpack-plugin';
-import * as path from 'path';
-import * as webpack from 'webpack';
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const WebpackObfuscatorPlugin = require('webpack-obfuscator');
 
-// Importing config file
-import config from './config';
 
 const htmlPlugin = new HtmlWebPackPlugin({
   template: './src/index.html',
@@ -17,11 +16,11 @@ module.exports = {
     proxy: {
       // Images are placed in './public' and will be loaded like normal
       '/img': {
-        target: `http://localhost:${config.backend.port}`
+        target: `http://localhost:3001`
       },
       // API calls will always have /api/ on the front of the route.
       '/api/*': {
-        target: `http://localhost:${config.backend.port}`
+        target: `http://localhost:3001`
       }
     },
   },
@@ -82,5 +81,32 @@ module.exports = {
   },
   plugins: [
     htmlPlugin,
+    // For testing purposes, this is the "High obfuscation, low performance" config on the javascript-obfuscator docs
+    // https://github.com/javascript-obfuscator/javascript-obfuscator
+    new WebpackObfuscatorPlugin({
+      compact: true,
+      controlFlowFlattening: true,
+      controlFlowFlatteningThreshold: 1,
+      deadCodeInjection: true,
+      deadCodeInjectionThreshold: 1,
+      debugProtection: true,
+      debugProtectionInterval: true,
+      disableConsoleOutput: true,
+      identifierNamesGenerator: 'hexadecimal',
+      log: false,
+      numbersToExpressions: true,
+      renameGlobals: false,
+      rotateStringArray: true,
+      selfDefending: true,
+      shuffleStringArray: true,
+      simplify: true,
+      splitStrings: true,
+      splitStringsChunkLength: 5,
+      stringArray: true,
+      stringArrayEncoding: 'rc4',
+      stringArrayThreshold: 1,
+      transformObjectKeys: true,
+      unicodeEscapeSequence: false
+    }),
   ],
 };
