@@ -24,12 +24,42 @@ module.exports = {
       }
     },
   },
+  plugins: [
+    htmlPlugin,
+    // For testing purposes, this is the "High obfuscation, low performance" config on the javascript-obfuscator docs
+    // https://github.com/javascript-obfuscator/javascript-obfuscator
+    new WebpackObfuscatorPlugin({
+      compact: true,
+      controlFlowFlattening: true,
+      controlFlowFlatteningThreshold: 1,
+      deadCodeInjection: true,
+      deadCodeInjectionThreshold: 1,
+      debugProtection: true,
+      debugProtectionInterval: true,
+      disableConsoleOutput: true,
+      identifierNamesGenerator: 'hexadecimal',
+      log: false,
+      numbersToExpressions: true,
+      renameGlobals: false,
+      rotateStringArray: true,
+      selfDefending: true,
+      shuffleStringArray: true,
+      simplify: true,
+      splitStrings: true,
+      splitStringsChunkLength: 5,
+      stringArray: true,
+      stringArrayEncoding: 'rc4',
+      stringArrayThreshold: 1,
+      transformObjectKeys: true,
+      unicodeEscapeSequence: false
+    }),
+  ],
   entry: './src/index.tsx',
   resolve: {
     extensions: [ '.ts', '.tsx', '.js' ],
   },
   output: {
-    path: path.resolve('build/public'),
+    path: path.resolve(__dirname + '/build/public'),
     filename: 'bundle.js',
     publicPath: '/'
   },
@@ -79,34 +109,4 @@ module.exports = {
       },
     ]
   },
-  plugins: [
-    htmlPlugin,
-    // For testing purposes, this is the "High obfuscation, low performance" config on the javascript-obfuscator docs
-    // https://github.com/javascript-obfuscator/javascript-obfuscator
-    new WebpackObfuscatorPlugin({
-      compact: true,
-      controlFlowFlattening: true,
-      controlFlowFlatteningThreshold: 1,
-      deadCodeInjection: true,
-      deadCodeInjectionThreshold: 1,
-      debugProtection: true,
-      debugProtectionInterval: true,
-      disableConsoleOutput: true,
-      identifierNamesGenerator: 'hexadecimal',
-      log: false,
-      numbersToExpressions: true,
-      renameGlobals: false,
-      rotateStringArray: true,
-      selfDefending: true,
-      shuffleStringArray: true,
-      simplify: true,
-      splitStrings: true,
-      splitStringsChunkLength: 5,
-      stringArray: true,
-      stringArrayEncoding: 'rc4',
-      stringArrayThreshold: 1,
-      transformObjectKeys: true,
-      unicodeEscapeSequence: false
-    }),
-  ],
 };
