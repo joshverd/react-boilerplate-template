@@ -6,6 +6,8 @@ import * as bodyParser from 'body-parser';
 // Importing the config file
 import config from './config';
 
+console.log(config);
+
 // Express app setup
 const app = express();
 const server = http.createServer(app);
