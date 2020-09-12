@@ -1,5 +1,4 @@
 export default {
-  backend: {
-    port: 3001,
-  },
+  // Because this file is the default config file, this `someSetting` will persist unless it's overridden by an environment-specific config file. 
+  someSetting: true,
 };
