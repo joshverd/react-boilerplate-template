@@ -1,25 +1,23 @@
 import { combineReducers, createStore } from 'redux';
 
 // Importing reducers
-import ClicksReducer from './clicks/reducer';
-import ObjectReducer from './object/reducer';
+import RequestsReducer from './requests/reducer';
 
 // Importing reducer types
-import { ClicksStateType } from './clicks/types';
-import { ObjectType } from './object/types';
+import { RequestsState } from './requests/types';
 
 const allReducers = combineReducers({
-  clicks: ClicksReducer,
-  object: ObjectReducer,
+  requests: RequestsReducer,
 });
 
-// Making the StoreTypes type global, so we don't have to import it in every component file we use it in
+// Making the ReduxState type global, so we don't have to import it in every component file we use it in
+//
+// Pretty sure this is an antipattern but I think it saves a ton of time if every component needs access.
 declare global {
-  type StoreTypes = {
-    clicks: ClicksStateType,
-    object: ObjectType,
-  };
-};
+  type ReduxState = {
+    requests: RequestsState,
+  }
+}
 
-// Exporting a function that, when run, will create a store using allReducers
+// Exporting the created store using the above reducers.
 export default createStore(allReducers);

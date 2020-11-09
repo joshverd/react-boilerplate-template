@@ -1,5 +1,13 @@
 $background-color: #CDCDCD;
 $black: black;
+$white: white;
+$red: rgba(#FF0000, .7);
+
+// The width of the App items
+$item-width: 200px;
+
+// Border radius of all items
+$border-radius: 3px;
 
 @mixin noselect {
   -webkit-user-select: none; /* Chrome all / Safari all */

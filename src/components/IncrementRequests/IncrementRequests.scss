@@ -1,0 +1,32 @@
+@import '../../variables.scss';
+
+.incrementRequestsWrapper {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  width: $item-width;
+
+  > button {
+    color: $white;
+    background-color: $black;
+    flex: 0 0 30px;
+    outline: none;
+    border-radius: $border-radius;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  > .errorWrapper {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    > span {
+      color: $red;
+    }
+  }
+}

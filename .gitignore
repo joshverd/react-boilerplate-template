@@ -8,6 +8,9 @@ yarn-error.log*
 # Build Directory
 build/
 
+# Ignore any built javascript bundles in /public/
+public/*.js
+
 # Runtime data
 pids
 *.pid

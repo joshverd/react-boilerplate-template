@@ -1,11 +1,30 @@
 {
-  "compilerOptions": {
-    "moduleResolution": "node",
-    "noImplicitAny": true,
-    "allowJs": true,
-    "typeRoots": [
-      "./node.declarations.d.ts",
-      "./src/react.declarations.d.ts"
-    ],
-  }
+	"compilerOptions": {
+		"moduleResolution": "node",
+    "jsx": "react",
+		"noImplicitAny": true,
+		"lib": [
+			"DOM",
+			"es2018",
+			"dom.iterable"
+		],
+		"module": "commonjs",
+		"target": "es6",
+		"allowJs": true,
+		"esModuleInterop": true,
+		"allowSyntheticDefaultImports": true,
+		"baseUrl": "./",
+		"paths": {
+			"types/*": ["./types/*"],
+		},
+		"typeRoots": [
+			"./declarations.d.ts",
+			"./src/react.declarations.d.ts",
+			"./node_modules/@types/*"
+		],
+	},
+	"exclude": [
+    "node_modules",
+		"build"
+	]
 }

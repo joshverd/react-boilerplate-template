@@ -1,6 +1,5 @@
-import * as HtmlWebPackPlugin from 'html-webpack-plugin';
+import HtmlWebPackPlugin from 'html-webpack-plugin';
 import * as path from 'path';
-import * as webpack from 'webpack';
 
 // Importing config file
 import config from './config';
@@ -42,7 +41,7 @@ module.exports = {
         loader: 'ts-loader',
         exclude: /node_modules/,
         options: {
-          configFile: 'src/tsconfig.react.json',
+          configFile: path.resolve(__dirname + '/src/tsconfig.react.json'),
         },
       },
       // JS Loader

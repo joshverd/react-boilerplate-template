@@ -1,0 +1,25 @@
+@import '../../variables.scss';
+
+.requestDisplayWrapper {
+  display: flex;
+  flex-direction: column;
+  height: $item-width;
+  width: $item-width;
+  background-color: rgba($black, .6);
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+  border-radius: $border-radius;
+
+  > .requestCount {
+    color: $white;
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  > .title {
+    color: $white;
+    font-size: 15px;
+  }
+}

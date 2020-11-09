@@ -2,16 +2,18 @@ import * as React from 'react';
 import style from './App.scss';
 
 // Components
-import HooksTest from '../../components/HooksTest/HooksTest';
+import RequestsDisplay from '../../components/RequestsDisplay/RequestsDisplay';
+import IncrementRequests from '../../components/IncrementRequests/IncrementRequests';
 
-type AppPropTypes = {};
+type AppProps = {};
 
-const App = (props:AppPropTypes) => {
+const App = (props: AppProps) => {
   return (
     <div className={style.appWrapper}>
-      <HooksTest />
+      <RequestsDisplay />
+      <IncrementRequests />
     </div>
   );
-};
+}
 
 export default App;

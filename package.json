@@ -2,13 +2,10 @@
   "scripts": {
     "frontend": "./node_modules/.bin/webpack-dev-server --dev --port 3000",
     "backend": "./node_modules/.bin/nodemon --exec \"ts-node\" --files app.ts",
-    
     "build": "npm run build-frontend && npm run build-backend",
     "build-backend": "./node_modules/.bin/tsc --outDir build --project ./tsconfig.node.json",
     "build-frontend": "./node_modules/.bin/webpack --mode production",
-
     "start": "set NODE_ENV=development&& concurrently \"npm run frontend\" \"npm run backend\"",
-
     "backend-production": "NODE_ENV=production&& concurrently \"npm run frontend\" \"npm run backend\""
   },
   "dependencies": {
@@ -16,6 +13,7 @@
     "@babel/preset-react": "^7.0.0",
     "@types/express": "^4.17.6",
     "@types/html-webpack-plugin": "^3.2.3",
+    "axios": "^0.21.0",
     "babel-loader": "^8.0.6",
     "concurrently": "^4.1.1",
     "css-loader": "^2.1.1",
