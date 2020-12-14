@@ -30,8 +30,16 @@ module.exports = {
   },
   output: {
     path: path.resolve('build/public'),
-    filename: 'bundle.js',
-    publicPath: '/'
+    filename: '[name].js?hash=[hash]',
+    chunkFilename: "[name].js?hash=[chunkhash]",
+    publicPath: '/',
+  },
+  optimization: {
+    usedExports: true,
+    sideEffects: false,
+    splitChunks: {
+      chunks: 'all',
+    },
   },
   module: {
     rules: [
