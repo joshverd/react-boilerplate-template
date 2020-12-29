@@ -16,7 +16,7 @@ type IncrementRequestsProps = {
 }
 
 const IncrementRequests = (props: IncrementRequestsProps) => {
-  const [error, setError] = useState<string>();
+  const [error, setError] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
 
   const sendServerIncrementRequest = () => {
@@ -25,7 +25,7 @@ const IncrementRequests = (props: IncrementRequestsProps) => {
 
     // Start loading
     setLoading(true);
-    setError(null);
+    setError('');
 
     axios.post('/api/requests/incrementAndGet')
       .then(response => {

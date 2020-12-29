@@ -15,7 +15,7 @@ function getTime(): string {
 
 // Creates a UTC dayjs object using the dayjs UTC extended object
 function utc(time?: string | number | Date, format?: string): dayjs.Dayjs {
-  if(time) return dayjs.utc(time, format || null);
+  if(time) return dayjs.utc(time, format);
 
   return dayjs.utc();
 }
