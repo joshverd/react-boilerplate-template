@@ -20,9 +20,9 @@ The npm start script runs both the front-end and the back-end at the same time u
  - `./config.ts` - The backend config aggregator
 
 ### Setup
-1 - Make sure you have node.js installed on your machine.
-2 - While inside the directory containing this project, run `npm i` to install all required dependencies.
-3a - Check to see if your IDE supports Typescript natively or if you need to install a package for language support. A huge benefit of Typescript is its amazing language server. Take advantage of it!
+1. Make sure you have node.js installed on your machine.
+2. While inside the directory containing this project, run `npm i` to install all required dependencies.
+3. Check to see if your IDE supports Typescript natively or if you need to install a package for language support. A huge benefit of Typescript is its amazing language server. Take advantage of it!
 
 ### Running Dev
 This will start a server on localhost:3000 and automatically recompile backend/frontend when a change is detected.
