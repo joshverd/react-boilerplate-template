@@ -17,7 +17,7 @@
     "@types/html-webpack-plugin": "^3.2.3",
     "@types/jest": "^26.0.19",
     "@types/supertest": "^2.0.10",
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "babel-loader": "^8.0.6",
     "concurrently": "^4.1.2",
     "css-loader": "^2.1.1",
